@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Successful Registration</title>
+</head>
+<body>
+    <p>Sucess</p>
+    <br>
+    <p>You have successfully managed to register for the event.</p>
+    <br>
+    <p th:text="${eventName}"></p>
+    <br>
+    <td th:text="${#dates.format(new java.util.Date(eventDate), 'dd-MM-yyyy')}"></td>
+    <br>
+    <a th:href="@{/}">Back to event listing.</a>
+</body>
+</html>

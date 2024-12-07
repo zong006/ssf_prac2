@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+</head>
+<body>
+    <p>You didn't manage to register for the following reason:</p>
+    <table >
+        <tr th:each="error : ${errorMsgs}">
+            <p th:text="${error}"></p>
+        </tr>
+    </table>
+    <a th:href="@{/}">Back to Event Listing</a>
+</body>
+</html>

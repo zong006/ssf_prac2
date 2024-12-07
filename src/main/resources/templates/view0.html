@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+</head>
+<body>
+    <p>List Of Events</p>
+    <br>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Event Name</th>
+            <th>Event Size</th>
+            <th>Event Date</th>
+            <th>Register</th>
+        </tr>
+        <tr th:each="event : ${eventList}">
+            <td th:text="${event.eventId}"></td>
+            <td th:text="${event.eventName}"></td>
+            <td th:text="${event.eventSize}"></td>
+            <td th:text="${#dates.format(new java.util.Date(event.eventDate), 'dd-MM-yyyy')}"></td>
+            <td>
+                <form th:action="@{/register}" method="get">
+                    <input type="hidden" name="eventName" th:value="${event.eventName}">
+                    <input type="hidden" name="eventDate" th:value="${event.eventDate}">
+                    <button type="submit">Register</button>
+                </form>
+                <!-- <a th:href="@{/register}">Register</a> -->
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>
