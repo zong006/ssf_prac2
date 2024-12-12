@@ -4,10 +4,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import jakarta.json.Json;
@@ -55,13 +57,17 @@ public class DatabaseService {
     
     public JsonArray loadFileAsArray(String fileName) throws IOException{
 
-        File f = new File(fileName);
-        FileReader fr = new FileReader(f);
-        BufferedReader br = new BufferedReader(fr);
-        JsonReader jsonReader = Json.createReader(br);
+        // File f = new File(fileName);
+        // FileReader fr = new FileReader(f);
+        // BufferedReader br = new BufferedReader(fr);
+        // JsonReader jsonReader = Json.createReader(br);
+
+        ClassPathResource cpr = new ClassPathResource(fileName);
+        InputStream is = cpr.getInputStream();
+        JsonReader jsonReader = Json.createReader(is);
         JsonArray jsonData = jsonReader.readArray();
         jsonReader.close();
-        br.close();
+        // br.close();
 
         return jsonData;
     }

@@ -14,7 +14,8 @@ public interface Util {
 
     String delimiter = "THIS_IS_A_DELIMITER";
 
-    String filePath = "./events.json";
+    String filePath = "events.json";
+    // String filePath = "./src/main/resources/static/events.json";
 
     List<String> eventNames = Arrays.asList("Christmas Eve Party", "Round Singapore Cycling", "Intro to SCRATCH", "JB Shopping !");
     

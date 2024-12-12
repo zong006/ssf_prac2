@@ -54,7 +54,7 @@ ARG DEPLOY_DIR=/app
 
 WORKDIR ${DEPLOY_DIR}
 COPY --from=compiler /code_folder/target/ssf_prac2-0.0.1-SNAPSHOT.jar target/ssf_prac2.jar
-COPY events.json .
+# COPY events.json .
 
 # RUN apt update && apt install -y curl
 # RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
