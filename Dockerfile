@@ -54,6 +54,8 @@ ARG DEPLOY_DIR=/app
 
 WORKDIR ${DEPLOY_DIR}
 COPY --from=compiler /code_folder/target/ssf_prac2-0.0.1-SNAPSHOT.jar target/ssf_prac2.jar
+COPY --from=compiler /code_folder/src/main/resources /app/resources
+
 RUN apt update && apt install -y curl
 
 ENV SERVER_PORT=3000
