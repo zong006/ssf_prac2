@@ -56,13 +56,13 @@ WORKDIR ${DEPLOY_DIR}
 COPY --from=compiler /code_folder/target/ssf_prac2-0.0.1-SNAPSHOT.jar target/ssf_prac2.jar
 COPY events.json .
 
-RUN apt update && apt install -y curl
+# RUN apt update && apt install -y curl
 
 ENV SERVER_PORT=3000
 EXPOSE ${SERVER_PORT}
 
-HEALTHCHECK --interval=10s --timeout=5s --start-period=3s --retries=3 \
-   CMD curl http://localhost:${SERVER_PORT}/health || exit 1
+# HEALTHCHECK --interval=10s --timeout=5s --start-period=3s --retries=3 \
+#    CMD curl http://localhost:${SERVER_PORT}/health || exit 1
 
 ENTRYPOINT SERVER_PORT=${SERVER_PORT} java -jar target/ssf_prac2.jar
 
