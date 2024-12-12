@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,8 +57,6 @@ public class DatabaseService {
 
         File f = new File(fileName);
         FileReader fr = new FileReader(f);
-        // InputStream is = getClass().getClassLoader().getResourceAsStream("static/data/events.json");
-        // InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(fr);
         JsonReader jsonReader = Json.createReader(br);
         JsonArray jsonData = jsonReader.readArray();
