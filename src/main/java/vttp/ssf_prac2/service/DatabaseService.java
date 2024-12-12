@@ -58,10 +58,10 @@ public class DatabaseService {
     public JsonArray loadFileAsArray(String fileName) throws IOException{
 
         File f = new File(fileName);
-        // FileReader fr = new FileReader(f);
-        InputStream is = getClass().getClassLoader().getResourceAsStream("static/data/events.json");
-        InputStreamReader isr = new InputStreamReader(is);
-        BufferedReader br = new BufferedReader(isr);
+        FileReader fr = new FileReader(f);
+        // InputStream is = getClass().getClassLoader().getResourceAsStream("static/data/events.json");
+        // InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(fr);
         JsonReader jsonReader = Json.createReader(br);
         JsonArray jsonData = jsonReader.readArray();
         jsonReader.close();
